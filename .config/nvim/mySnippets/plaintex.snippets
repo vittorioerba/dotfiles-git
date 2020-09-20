@@ -1,0 +1,144 @@
+# https://castel.dev/post/lecture-notes-1/ 
+
+# headers
+snippet template "Basic template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+snippet fulltemplate "Extended template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true
+	}
+
+% commands
+\newcommand*\pFqskip{8mu}
+\def\dopFq#1#2#3#4#5{{}_{#1}F_{#2}\left(\genfrac..{0pt}{}{#3}{#4}\bigg\vert\,#5\right)\endgroup}
+
+
+\newtheorem{theorem}{Theorem}
+% \newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{conj}{Conjecture}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem{prop}{Proposition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+% \newtheorem{principle}{Principle}
+
+\newcommand{\pf}{\noindent {\it Proof.}}
+\renewcommand{\qed}{\hfill $\square$}
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Li}{Li}
+\newcommand\das{\ensuremath{\overset{d}{=}}}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+# environments
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet eq "eq environment" w
+\begin{equation}
+$1 \, $2
+\end{equation}
+$0
+endsnippet
+
+snippet mk "inline math" w
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+# math
+
+snippet // "Fraction" iA
+\\frac{$1}{$2} $0
+endsnippet
+
+priority 1000
+snippet '^.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i -= 1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
+
+snippet ^ "superscript" iA
+^{$1} $0
+endsnippet
+
+snippet _ "lowerscript" iA
+_{$1} $0
+endsnippet
+
+priority 10
+snippet "bar" "bar" ri
+\overline{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])bar" "bar" ri
+\overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+snippet "hat" "hat" ri
+\hat{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])hat" "hat" ri
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+# special characters
+snippet EE "expectation value" iA
+\mathbb{E}
+endsnippet
+
+snippet GG "Gamma" iA
+\Gamma \left( $1 \right) $0
+endsnippet
+
+snippet RR "real" iA
+\mathbb{R}
+endsnippet
+
+snippet ZZ "integer" iA
+\mathbb{Z}
+endsnippet
+

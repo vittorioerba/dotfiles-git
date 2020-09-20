@@ -1,0 +1,200 @@
+# https://castel.dev/post/lecture-notes-1/ 
+
+# headers
+snippet template "Basic template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath,amssymb}
+
+\author{Vittorio Erba}
+\date{\today}
+\title{}
+
+\begin{document}
+	\maketitle
+
+	$0
+\end{document}
+endsnippet
+
+
+snippet fulltemplate "Extended template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true
+	}
+
+% commands
+\newcommand*\pFqskip{8mu}
+\def\dopFq#1#2#3#4#5{{}_{#1}F_{#2}\left(\genfrac..{0pt}{}{#3}{#4}\bigg\vert\,#5\right)\endgroup}
+
+
+\newtheorem{theorem}{Theorem}
+% \newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{conj}{Conjecture}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem{prop}{Proposition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+% \newtheorem{principle}{Principle}
+
+\newcommand{\pf}{\noindent {\it Proof.}}
+\renewcommand{\qed}{\hfill $\square$}
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Li}{Li}
+\newcommand\das{\ensuremath{\overset{d}{=}}}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+snippet noindent "no indentation" b
+\setlength\parindent{0pt}
+$0
+endsnippet
+
+# environments
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet eq "eq environment" w
+\begin{equation}
+    \begin{split}
+        $1 \, $2
+    \end{split}
+\end{equation}
+$0
+endsnippet
+
+snippet mk "inline math" w
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet RED "red text" w
+{\color{red}$1}$0
+endsnippet
+
+snippet GRE "green text" w
+{\color{green}$1}$0
+endsnippet
+
+snippet BLU "blue text" w
+{\color{blue}$1}$0
+endsnippet
+
+# math
+
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+# priority 1000
+# snippet '^.*\)/' "() Fraction" wrA
+# `!p
+# stripped = match.string[:-1]
+# depth = 0
+# i = len(stripped) - 1
+# while True:
+# 	if stripped[i] == ')': depth += 1
+# 	if stripped[i] == '(': depth -= 1
+# 	if depth == 0: break;
+# 	i -= 1
+# snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+# `{$1}$0
+# endsnippet
+
+snippet ^ "superscript" i
+^{$1}$0
+endsnippet
+
+snippet _ "lowerscript" i
+_{$1}$0
+endsnippet
+
+priority 10
+snippet "bar" "bar" ri
+\overline{$1}$0
+endsnippet
+
+priority 10
+snippet "til" "til" ri
+\tilde{$1}$0
+endsnippet
+
+priority 10
+snippet "vec" "vec" ri
+\vec{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])bar" "bar" ri
+\overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+snippet "hat" "hat" ri
+\hat{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])hat" "hat" ri
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+# special characters
+snippet EE "expectation value" iA
+\mathbb{E}\left[ $1 \right] $0
+endsnippet
+
+snippet RR "real" iA
+\mathbb{R}
+endsnippet
+
+snippet ZZ "integer" iA
+\mathbb{Z}
+endsnippet
+
+snippet GG "gamma function" i
+\Gamma\left( $1 \right)$0
+endsnippet
+
+snippet \t "tau" i
+\tau
+endsnippet
+
+snippet \e "epsilon" i
+\epsilon
+endsnippet
+
+snippet LL "ell" iA
+\ell
+endsnippet
+
+snippet (( "parenthesis" iA
+\left( $1 \right) $0
+endsnippet
+
+snippet <> "average" iA
+\left\langle $1 \right\rangle $0
+endsnippet

@@ -1,7 +1,7 @@
 # Vittorio Erba's configuration files
 
 This repository is where I manage the configuration files (dotfiles) for my current installation of Arch Linux.
-I manage the dotfiles using [Gnu Stow](https://www.gnu.org/software/stow/).
+I manage the dotfiles using a bare git repo; more [here](https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html).
 
 ### Screenshots
 

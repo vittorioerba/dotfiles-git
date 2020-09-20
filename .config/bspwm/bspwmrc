@@ -1,0 +1,56 @@
+#! /bin/sh
+
+# autostart
+feh --no-fehbg --bg-fill '/home/vittorio/Immagini/Tsunami_by_hokusai_19th_century.jpg' # wallpaper
+sxhkd -c "$HOME/.config/sxhkd/bspwm_sxhkdrc"  &         # key manager
+picom -b &                                              # compositor
+nm-applet &                                             # connection
+volnoti &                                               # banner for volume control
+dunst &                                                 # notifications
+xautolock -locker "betterlockscreen -l" &               # lock screen after 10 mins
+
+# configure bspwm
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+bspc rule -a firefox desktop='^2' state=monocle follow=on
+bspc rule -a Thunderbird desktop='^8' state=monocle follow=on
+bspc rule -a Zotero desktop='^7' state=monocle follow=on
+bspc rule -a Enpass state=tiled
+bspc rule -a Zathura state=tiled
+bspc rule -a Skype state=tiled
+
+# # configure monitors
+if xrandr | grep -q "^DP1 connected"; then
+    
+    # xrandr --output eDP1 --primary --auto --output DP1 --auto --right-of eDP1
+    
+    polybar top &
+    polybar top-external &
+
+    bspc monitor eDP1 -d 1 2 3 4 5 6 7 8
+    bspc monitor DP1  -d 9
+else
+    polybar top &
+    bspc monitor eDP1 -d I II III IV V VI VII VIII IX
+fi
+
+# bash /home/vittorio/dotfiles/polybar/.config/polybar/launch.sh
+
+# bspc rule -a Polybar layer=ABOVE state=floating
+
+udiskie --tray &                                        # auto-mount usb
+dropbox &                                               # cloud
+
+# scratchpad
+
+# WINIT_HIDPI_FACTOR=1 alacritty --class scratchterm,scratchterm &
+# bspc rule -a scratchterm sticky=on state=floating hidden=on rectangle=1875x600+20+20
+
+
+

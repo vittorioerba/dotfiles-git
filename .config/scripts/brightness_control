@@ -1,0 +1,28 @@
+#!/bin/bash 
+
+# volnoti version
+# needs specific icons!
+low-icon=""
+med-icon=""
+high-icon=""
+
+if [ $# != 1 ]
+then
+    echo "Wrong usage! Use up, down"
+else
+    case $1 in
+        up)
+            lux -a 10%
+            currentBrightness=$(lux -G | grep -oE '[0-9]*')
+            volnoti-show $currentBrightness -2 $low-icon -3 $med-icon -4 $high-icon
+            ;;
+        down)
+            lux -s 10%
+            currentBrightness=$(lux -G | grep -oE '[0-9]*')
+            volnoti-show $currentBrightness -2 $low-icon -3 $med-icon -4 $high-icon
+            ;;
+        *)
+            echo "Wrong usage! Use up, down"
+            ;;
+    esac
+fi

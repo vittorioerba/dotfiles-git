@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+notify-send "brightness down: $(lux -G)" -t 1500

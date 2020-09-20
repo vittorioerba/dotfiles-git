@@ -1,0 +1,47 @@
+#!/bin/bash 
+
+# volnoti version
+
+
+if [ $# != 1 ]
+then
+    echo "Wrong usage! Use up, down, toggle"
+else
+    case $1 in
+        up)
+            amixer -q sset Master 5%+
+            # currentVolume=$(amixer sget Master | grep Mono: | cut -d ' ' -f 6 | grep -o '[0-9]*')
+            # volnoti-show $currentVolume
+            ;;
+        down)
+            amixer -q sset Master 5%-
+            # currentVolume=$(amixer sget Master | grep Mono: | cut -d ' ' -f 6 | grep -o '[0-9]*')
+            # volnoti-show $currentVolume
+            ;;
+        toggle)
+            stat=$(amixer sget Master | grep "Mono:" | grep -oE "\[on\]|\[off\]")
+            amixer -q sset Master toggle
+            # case $stat in
+            #     "[on]")
+            #         volnoti-show -m
+            #         ;;
+            #     "[off]")
+            #         currentVolume=$(amixer sget Master | grep Mono: | cut -d ' ' -f 6 | grep -o '[0-9]*')
+            #         volnoti-show $currentVolume
+            #         ;;
+            #     *)
+            #         echo "Error in retrieving status of Master channel"
+            #         ;;
+            # esac
+            ;;
+        *)
+            echo "Wrong usage! Use up, down, toggle"
+            ;;
+    esac
+fi
+
+
+
+
+# old version, only dunst required
+# notify-send "volume up $(amixer sget Master | grep Mono: | cut -d ' ' -f 6)" -t 1500

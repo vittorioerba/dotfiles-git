@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rafaqz/citation.vim' " citations from zotero
 
     " colors
+    Plug 'chriskempson/base16-vim'
     Plug 'fenetikm/falcon'
     Plug 'morhetz/gruvbox'
     Plug 'rakr/vim-one'

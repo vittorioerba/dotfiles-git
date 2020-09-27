@@ -38,8 +38,8 @@ set pastetoggle=<F2>            "paste mode
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmenu			" show menu for command autocomplete
 set lazyredraw			" don't redraw too much the screen
-set fillchars=stl:-     " fill active window's statusline with -
-set fillchars+=stlnc:-  " also fill inactive windows
+" set fillchars=stl:-     " fill active window's statusline with -
+" set fillchars+=stlnc:-  " also fill inactive windows
 set fillchars+=vert:┃	" change vertical splitting character
 set number              " show real current line number
 

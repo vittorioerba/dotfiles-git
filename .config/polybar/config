@@ -2,15 +2,17 @@
 ; https://www.reddit.com/r/unixporn/comments/drnqjy/bspwm_tokyo_nordic/
 
 [colors]
-background = #161821
+background = #151515
+; #161821
 background-alt = #3b4252
-foreground = #ebdbb2
+foreground = #d0d0d0
+;#ebdbb2
 foreground-alt = #81a1c1
 primary = #81a1c1
 secondary = #e60053
 alert = #bd2c40
-calendar = #a3be8c
-battery = #82B061
+calendar = #75b5aa
+battery = #75b5aa
 volume = #81a1c1
 cpu = #8fbcbb
 ram = #bf616a
@@ -160,8 +162,8 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-label-discharging-foreground = ${colors.battery}
-label-charging-foreground = ${colors.battery}
+; label-discharging-foreground = ${colors.battery}
+; label-charging-foreground = ${colors.battery}
 label-charging-padding = 1
 label-discharging-padding = 1
 format-charging = <animation-charging><label-charging>
@@ -169,7 +171,7 @@ format-charging = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 
 format-full-prefix = "   "
-format-full-prefix-foreground = ${colors.battery}
+; format-full-prefix-foreground = ${colors.battery}
 ramp-capacity-0 = "   "
 ramp-capacity-1 = "   "
 ramp-capacity-2 = "   "
@@ -181,7 +183,7 @@ animation-charging-1 = "   "
 animation-charging-2 = "   "
 animation-charging-3 = "   "
 animation-charging-4 = "   "
-animation-charging-foreground = ${colors.battery}
+; animation-charging-foreground = ${colors.battery}
 animation-charging-framerate = 1000
 
 [module/sep]
@@ -225,7 +227,7 @@ date = "%a : %d/%m/%Y"
 ; time-alt = %H:%M
 
 format-prefix = "  "
-format-prefix-foreground = ${colors.calendar}
+; format-prefix-foreground = ${colors.calendar}
 ; label-background = #3b4252
 label = " %date%  "
 ; format-prefix-background = #3b4252
@@ -237,8 +239,8 @@ interval = 5
 ; label-background = #3b4252
 time = %H:%M
 format-prefix = "  "
-format-prefix-foreground = ${colors.calendar}
-label = "%time%  "
+; format-prefix-foreground = ${colors.calendar}
+label = "%time% "
 ; format-prefix-background = #3b4252
 
 [module/volume]
@@ -256,7 +258,7 @@ label-muted-foreground = #66
 ramp-volume-0 = " 奄"
 ramp-volume-1 = " 奔"
 ramp-volume-2 = " 墳"
-ramp-volume-foreground = ${colors.volume}
+; ramp-volume-foreground = ${colors.volume}
 
 
 [settings]

@@ -11,9 +11,11 @@ if (empty($TMUX))
   endif
 endif
 
-let g:falcon_background = 0
-let g:falcon_inactive = 0
-colorscheme falcon
+let base16colorspace=256  " Access colors present in 256 colorspace
+
+" let g:falcon_background = 0
+" let g:falcon_inactive = 0
+colorscheme base16-default-dark
 
 " syntax enable*
 " hi Function ctermfg=4

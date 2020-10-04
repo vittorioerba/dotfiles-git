@@ -3,22 +3,19 @@
 ## Brightness
 
 Requires:
-- ```volnoti```
-- ```lux```
+- tools: ```volnoti```, ```lux```
 
 ## Volume
 
 Requires:
-- ```volnoti```
-- ```amixer```
+- tools: ```volnoti```, ```amixer```
 
 ## Lock
 
 Requires:
-- ```betterlockscreen```
+- tools: ```betterlockscreen```
 
 ## Toggle Bar
 
 Requires:
-- ```xdo```
-- ```xprop```
+- tools: ```xdo```, ```xprop```

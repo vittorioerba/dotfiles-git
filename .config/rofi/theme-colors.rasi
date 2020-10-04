@@ -1,0 +1,10 @@
+* {
+    foreground:           #d8dee9ff;
+    selected-foreground:  #161821ff;
+    
+    background:           #161821a0; 
+    background-solid:     #161821ff; 
+    selected-background:  #ebcb8bff;
+}
+
+

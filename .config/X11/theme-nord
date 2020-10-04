@@ -6,7 +6,10 @@
 ! Repository: https://github.com/arcticicestudio/nord-xresources
 ! License:    MIT
 
-#define nord0 #2E3440
+! original
+! #define nord0 #2E3440 
+! custom
+#define nord0 #161821
 #define nord1 #3B4252
 #define nord2 #434C5E
 #define nord3 #4C566A

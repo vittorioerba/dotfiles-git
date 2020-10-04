@@ -1,10 +1,11 @@
 #!/bin/bash 
 
-# volnoti version
-# needs specific icons!
-low-icon=""
-med-icon=""
-high-icon=""
+# # volnoti version
+# # needs specific icons!
+# zeroIcon="/home/vittorio/.local/share/icons/Reversal/status/symbolic/display-brightness-off-symbolic.svg"
+# lowIcon="/home/vittorio/.local/share/icons/Reversal/status/symbolic/display-brightness-low-symbolic.svg"
+# medIcon="/home/vittorio/.local/share/icons/Reversal/status/symbolic/display-brightness-medium-symbolic.svg"
+# highIcon="/home/vittorio/.local/share/icons/Reversal/status/symbolic/display-brightness-symbolic.svg"
 
 if [ $# != 1 ]
 then
@@ -14,12 +15,16 @@ else
         up)
             lux -a 10%
             currentBrightness=$(lux -G | grep -oE '[0-9]*')
-            volnoti-show $currentBrightness -2 $low-icon -3 $med-icon -4 $high-icon
+            volnoti-show $currentBrightness \
+                -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg
+                # -1 $zeroIcon -2 $lowIcon -3 $medIcon -4 $highIcon
             ;;
         down)
             lux -s 10%
             currentBrightness=$(lux -G | grep -oE '[0-9]*')
-            volnoti-show $currentBrightness -2 $low-icon -3 $med-icon -4 $high-icon
+            volnoti-show $currentBrightness \
+                -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg
+                #-1 $zeroIcon -2 $lowIcon -3 $medIcon -4 $highIcon
             ;;
         *)
             echo "Wrong usage! Use up, down"

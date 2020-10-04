@@ -11,11 +11,8 @@ Usage:   $Name [options]
 Options:
      -h      Display this message
      -v      Display script version
-     -q      Persistant calculator dialog
      -w      Switch between open windows
      -r      Program launcher & run dialog
-     -c      Select previous clipboard entries
-     -b      Browser search by keyword
      -l      Session logout choice
 
 EOF
@@ -35,16 +32,11 @@ while getopts ":hvqwcbrl" opt; do
         r)
             rofi -modi run,drun -show drun -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "ArchLabs-Light"
+                -show-icons
             ;;
         w)
             rofi -modi window -show window -hide-scrollbar \
                 -eh 1 -padding 50 -line-padding 4
-            ;;
-        q)
-            rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 \
-                -show "calc:qalc +u8 -nocurrencies" -line-padding 4 \
-                -hide-scrollbar
             ;;
         l)
             ANS=$(echo "Lock|Suspend|Shutdown|Logout|Reboot|Hibernate" | \

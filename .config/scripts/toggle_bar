@@ -1,13 +1,12 @@
 #!/bin/sh
 id=$(xdo id -N "Polybar" | head -n 1 ) 
-# echo $id
-# state=$(xprop -id $id | grep "_NET_WM_STATE(ATOM)" | cut -d ' ' -f 3 | cut -d ',' -f 1)
-# echo $state
 
 if xprop -id $id | grep "_NET_WM_STATE(ATOM)" | grep -q "HIDDEN";
 then
-    xdo show -a "Polybar tray window"
     xdo show -N "Polybar"
+    xdo raise -N "Polybar"
+    xdo show -a "Polybar tray window"
+    xdo raise -a "Polybar tray window"
     xprop -id $id -f _NET_WM_STATE 32a -set _NET_WM_STATE _NET_WM_STATE_VISIBLE
 else
     xdo hide -a "Polybar tray window"

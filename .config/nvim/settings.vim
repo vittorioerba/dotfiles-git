@@ -66,7 +66,7 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set showmatch           " higlight matching parenthesis
 
-" set ignorecase          " ignore case when searching
+set ignorecase          " ignore case when searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 

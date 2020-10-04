@@ -1,0 +1,9 @@
+! Rofi
+rofi.font: DejaVu Sans Mono for Powerline 12
+rofi.padding: 0
+rofi.line-padding: 2
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.color-window: #161821, #ebdbb2, #161821
+rofi.color-normal: #161821, #ebdbb2, #202330, #ebdbb2, #161821

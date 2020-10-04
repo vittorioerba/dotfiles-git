@@ -15,7 +15,8 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 
 " let g:falcon_background = 0
 " let g:falcon_inactive = 0
-colorscheme base16-default-dark
+colorscheme nord
+hi Normal guibg=NONE ctermbg=NONE
 
 " syntax enable*
 " hi Function ctermfg=4

@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'rakr/vim-one'
     Plug 'mhartington/oceanic-next'
+    Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 

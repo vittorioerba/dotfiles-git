@@ -210,6 +210,10 @@ add() {
   clear
 }
 #################################################################
+#SSH
+alias lcm='ssh -J vittorioerba@lcm.mi.infn.it vittorioerba@galileo'
+#################################################################
+#################################################################
 #DOTFILES
 #https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles.html
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -227,6 +231,9 @@ alias connect_gdrive="rclone --vfs-cache-mode writes mount gdrive: ~/Cloud/rc_gD
 # JUPYTERLAB
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
+#################################################################
+# JULIA
+export JULIA_NUM_THREADS=8
 #################################################################
 # NOTES
 #################################################################

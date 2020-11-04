@@ -1,0 +1,67 @@
+#
+# wm independent hotkeys
+#
+
+################## APPS
+
+# terminal emulator
+super + Return
+    alacritty
+#	WINIT_X11_SCALE_FACTOR=1 alacritty
+
+# super + shift + Return 
+    # /home/vittorio/.config/scripts/launch_scratchpad.sh
+
+################# MENUS
+
+# program launcher
+super + space
+    /home/vittorio/.config/scripts/myrofi drun
+
+# window switcher launcher
+super + shift + space
+    /home/vittorio/.config/scripts/myrofi window
+
+# lock
+super + apostrophe
+    /home/vittorio/.config/scripts/lock
+
+# powermenu
+super + 0
+    /home/vittorio/.config/scripts/myrofi powermenu
+
+# wm menu
+super + shift + 0
+    /home/vittorio/.config/scripts/myrofi i3-menu
+
+# file launcher: zotero papers
+super + p
+    rofi -show file-browser -font "Deja Vu Sans Mono for Powerline 12" -file-browser-dir ~/Cloud/OneDrive/myPHDfolder/scienza/libreria/papers -file-browser-exclude "*.md" -file-browser-exclude "*.bib"
+
+# # file browser launcher
+# super + p
+#     rofi -show file-browser -file-browser-dir "~/Cloud/Library/" -file-browser-exclude "*.md" -file-browser-exclude "*.bib" -font "Deja Vu Sans Mono for Powerline 12"
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+#
+# Media keys
+#
+
+
+# Screen brightness controls
+XF86MonBrightnessUp    
+    bash $HOME/.config/scripts/brightness_control up
+
+XF86MonBrightnessDown
+    bash $HOME/.config/scripts/brightness_control down
+
+# volume controls
+XF86AudioRaiseVolume   
+    bash $HOME/.config/scripts/volume_control up
+XF86AudioLowerVolume
+    bash $HOME/.config/scripts/volume_control down
+XF86AudioMute          
+    bash $HOME/.config/scripts/volume_control toggle
+

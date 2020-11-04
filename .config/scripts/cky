@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#
+# cky - conky
+#
+
+killall -q conky
+
+# shellcheck disable=SC1090
+[ -f ~/.cache/rpg/colors ] && . ~/.cache/rpg/colors
+
+printf '%s' "$(cat << CONF
+conky.config = {
+    alignment = 'top_left',
+    background = true,
+    default_color = '${color0:=#000000}',
+    double_buffer = true,
+    font = 'SF Mono:size=28:style=medium',
+    font2 = 'SF Mono:size=84:style=medium',
+    font3 = 'IcoFont:size=22:style=regular',
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    gap_x = 150,
+    gap_y = 130,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = false,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    update_interval = 10,
+    use_xft = true,
+    uppercase = false,
+}
+conky.text = [[
+\${font2}\${time %H:%M}\${font}
+\${voffset 8}\${font3} \${voffset -8}\${font}\${time %A %d %B}
+\${voffset 8}\${font3} \${voffset -8}\${font}\${wireless_essid wlp2s0}
+\${voffset 8}\${font3} \${voffset -8}\${font}\${battery_percent}%
+]];
+CONF
+)" > ~/.conkyrc
+
+while pgrep -x conky > /dev/null; do (:;:); done
+
+conky -c ~/.conkyrc -d

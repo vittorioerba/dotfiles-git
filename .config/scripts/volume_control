@@ -20,7 +20,7 @@ else
             ;;
         toggle)
             stat=$(amixer sget Master | grep "Mono:" | grep -oE "\[on\]|\[off\]")
-            amixer -q sset Master toggle
+            amixer -D pulse sset Master toggle
             case $stat in
                 "[on]")
                     volnoti-show -m

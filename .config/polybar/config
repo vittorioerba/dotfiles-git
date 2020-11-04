@@ -1,15 +1,19 @@
 ; vim:filetype=dosini
+; https://www.reddit.com/r/unixporn/comments/drnqjy/bspwm_tokyo_nordic/
 
 [colors]
-background = #161821
+; background = #00000000
+background = #151515
+; #161821
 background-alt = #3b4252
-foreground = #ebdbb2
+foreground = #d0d0d0
+;#ebdbb2
 foreground-alt = #81a1c1
 primary = #81a1c1
 secondary = #e60053
 alert = #bd2c40
-calendar = #a3be8c
-battery = #82B061
+calendar = #75b5aa
+battery = #75b5aa
 volume = #81a1c1
 cpu = #8fbcbb
 ram = #bf616a
@@ -18,13 +22,13 @@ logo = #5e81ac
 
 [bar/top]
 ; two lines below needed so that the wm ignores the panel to have it placed in weird places
-override-redirect = true
-wm-restack = bspwm
+; override-redirect = true
+; wm-restack = bspwm
 monitor = eDP1
-width = 33%
-height = 40
-offset-x = 33%
-offset-y = 580px
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 0%
 radius = 0
 fixed-center = true
 
@@ -36,11 +40,10 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-left-size = 1
-border-right-size = 1
-border-top-size = 1
-border-bottom-size = 0
-border-color = ${colors.foreground}
+border-size = 0 
+; border-color = #00000000
+border-color = #4c566a
+
 
 padding-left = 0
 padding-right = 0
@@ -50,37 +53,18 @@ module-margin-right = 0
 module-margin-background = #3b4252
 
 font-0 = DejaVuSansMono Nerd Font:pixelsize=13;2:antialias=false
+; font-1 = unifont:fontformat=truetype:size=13:antialias=false;2
+; font-1 = Siji:size=12;1
+; font-3 = FontAwesome:size=10;-2
 
-modules-left = end
-modules-center =
-modules-right = end
 
-tray-position = center
+modules-left = 
+modules-center = wm
+modules-right = end battery sep volume sep time sep date
+
+tray-position = left
 tray-padding = 5
 
-[bar/mid]
-inherit = bar/top
-offset-y = 50%
-border-left-size = 1
-border-right-size = 1
-border-top-size = 0
-border-bottom-size = 0
-modules-left = end
-modules-center = bspwm
-modules-right = end
-tray-position = none
-
-[bar/bottom]
-inherit = bar/top
-offset-y = 499px
-border-left-size = 1
-border-right-size = 1
-border-top-size = 0
-border-bottom-size = 1
-modules-left = end
-modules-center = battery sep volume sep date
-modules-right = end
-tray-position = none
 
 [bar/top-external]
 monitor = DP1
@@ -110,18 +94,90 @@ module-margin-left = 0
 module-margin-right = 0
 module-margin-background = #3b4252
 
-font-0 = DejaVu Sans Mono for Powerline:pixelsize=13;2
-font-1 = unifont:fontformat=truetype:size=13:antialias=false;2
-font-2 = Siji:size=12;1
-font-3 = FontAwesome:size=10;-2
+font-0 = DejaVuSansMono Nerd Font:pixelsize=13;2:antialias=false
+; font-1 = unifont:fontformat=truetype:size=13:antialias=false;2
+; font-1 = Siji:size=12;1
+; font-3 = FontAwesome:size=10;-2
 
 
 modules-left = 
 modules-center = bspwm
-modules-right = end battery sep volume sep date
+modules-right = end battery sep volume sep time sep date
 
 tray-position = none
 tray-padding = 5
+
+[module/wm]
+type = internal/i3
+pin-workspaces = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${bar/top.background} 
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = ${bar/top.foreground}
+label-focused-background = ${bar/top.background}
+label-focused-underline = ${bar/top.foreground}
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = ${bar/top.foreground} 
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = ${bar/top.foreground}
+label-urgent-background = ${bar/top.background}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator = 
+label-separator-padding = 1
+label-separator-foreground = #ffb52a
 
 [module/bspwm]
 type = internal/bspwm
@@ -212,7 +268,7 @@ content = |
 
 [module/end]
 type = custom/text
-content = " "
+content = "|"
 ; content-foreground = #353b49
 ; content-background = #353b49
 

@@ -4,6 +4,10 @@ menu="$1"
 
 if [ "$menu" = "drun" ]; then
     rofi -show drun -theme theme-clean
+elif [ "$menu" = "window" ]; then
+    rofi -show window -theme theme-clean
 elif [ "$menu" = "powermenu" ]; then
     rofi -modi 'Powermenu:~/.config/rofi/rofi-powermenu.sh' -show Powermenu -theme theme-powermenu
+elif [ "$menu" = "i3-menu" ]; then
+    rofi -modi 'Powermenu:~/.config/rofi/rofi-i3-menu.sh' -show Powermenu -theme theme-powermenu
 fi

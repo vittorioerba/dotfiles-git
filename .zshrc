@@ -212,6 +212,7 @@ add() {
 #################################################################
 #SSH
 alias lcm='ssh -J vittorioerba@lcm.mi.infn.it vittorioerba@galileo'
+alias lcmInfo="ssh -J vittorioerba@lcm.mi.infn.it vittorioerba@galileo 'bash slurmInfo.sh'"
 #################################################################
 #################################################################
 #DOTFILES

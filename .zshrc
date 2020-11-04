@@ -14,7 +14,7 @@ alias shconf="source $HOME/.zshrc"
 # ZSHDIR="$CONFIGDIR/zsh"
 # VIMDIR="$CONFIGDIR/nvim"
 
-export EDITOR="vim"
+export EDITOR="nvim"
 #################################################################
 # PATH
 export PATH=$PATH:$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.config/scripts
@@ -97,6 +97,9 @@ PURE_PROMPT_SYMBOL=">"
 alias cl='clear'
 alias cdh='cd $HOME && clear'
 alias lsa='ls -alh --color=auto'
+alias cp='cp -riv'
+alias mv='mv -iv'
+alias mkdir='mkdir -vp'
 
 # using fzf to cd
 # see more here: https://github.com/junegunn/fzf/wiki/Examples#changing-directory
@@ -249,4 +252,17 @@ note() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+#################################################################
+# BSPWM
+#################################################################
+alias noExternalMonitor=' bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9'
+turnOnExternalMonitor() {
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --right-of eDP1
+    bspc monitor eDP1 -d 1 2 3 4 5 6 7 8
+    bspc monitor DP1  -d 9
+}
+turnOffExternalMonitor() {
+    xrandr --output eDP1 --primary --auto
+    bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9
+}
+if [ -e /home/vittorio/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vittorio/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

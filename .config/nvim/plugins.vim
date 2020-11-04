@@ -32,7 +32,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'lervag/vimtex'
     Plug 'digitaltoad/vim-pug'
     Plug 'JuliaEditorSupport/julia-vim'
-
+    Plug 'rsmenon/vim-mathematica'
+    Plug 'tbastos/vim-lua' 
+    
     " autocompletion
     Plug 'SirVer/ultisnips'
 

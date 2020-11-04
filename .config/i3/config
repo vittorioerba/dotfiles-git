@@ -16,15 +16,19 @@ bindsym $mod+Right focus right
 bindsym $mod+Tab       exec --no-startup-id i3-switch-tabs right
 bindsym $mod+Shift+Tab exec --no-startup-id i3-switch-tabs left
 
-# Mod4 + Shift + arrows: move in direction # look into swaps
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Right move right
+# Mod4 + Shift + arrows: move in direction
+bindsym $mod+Shift+Up mark _last; focus up; swap with mark "_last"; focus down
+bindsym $mod+Shift+Down mark _last; focus down; swap with mark "_last"; focus up
+bindsym $mod+Shift+Left mark _last; focus left; swap with mark "_last"; focus right
+bindsym $mod+Shift+Right mark _last; focus right; swap with mark "_last"; focus left
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Right move right
 
 # Mod4 + v,h: set split direction
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec --no-startup-id notify-send 'tile horizontally'
+bindsym $mod+v split v;exec --no-startup-id notify-send 'tile vertically'
 bindsym $mod+Shift+v layout splitv
 bindsym $mod+Shift+h layout splith
 
@@ -32,10 +36,10 @@ bindsym $mod+Shift+h layout splith
 bindsym $mod+t layout toggle tabbed split
 
 # kill focused window
-mode "kill" {
+mode "Kill?" {
     bindsym $mod+w kill ; mode "default"
 }
-bindsym $mod+w mode "kill"; exec sh -c 'sleep 0.5 && i3-msg mode "default"'
+bindsym $mod+w mode "Kill?"; exec --no-startup-id sh -c 'sleep 0.5 && i3-msg mode "default"'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -161,8 +165,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 font xft:URWGothic-Book 11
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window none
-new_float none
+default_border pixel 1
+default_floating_border pixel 1
 
 # Hide borders
 hide_edge_borders none
@@ -179,60 +183,20 @@ gaps inner 14
 gaps outer -2
 
 
+title_align center
+
 #######
 #THEME#
 # https://github.com/a-schaefers/i3-wm-gruvbox-theme/blob/master/i3/config
 #######
 
 # set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
+set $bg #161821
+set $bgl #2a2e40
+set $fg #9d9d9d
 
-
-##start of bar section
-#bar {
-#	i3bar_command i3bar
-#	status_command i3status
-#	position bottom
-
-### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-##	tray_output primary
-##	tray_output eDP1
-
-#	bindsym button4 nop
-#	bindsym button5 nop
-##   font xft:URWGothic-Book 11
-#	strip_workspace_numbers yes
-
-#    colors {
-#        # bar background color
-#        background $bg
-#        # text color used for blocks that do not have a color specified.
-#        statusline $yellow
-#        # workspaces section            
-#        #                    border  backgr. text
-#        focused_workspace    $aqua $aqua $darkgray
-#        inactive_workspace   $darkgray $darkgray $yellow
-#        active_workspace     $darkgray $darkgray $yellow
-#        urgent_workspace     $yellow $yellow $bg
-#    }
-#}
-##end of bar section
-
-##start of window title bars & borders section
-
-## blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $yellow
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $yellow $yellow $white $yellow $yellow
-
-##end of window title bars & borders section
+client.focused          $bgl $fg  $bg $fg $bgl
+client.focused_inactive $bgl $bgl $fg $fg $bg
+client.unfocused        $bg $bgl $fg $fg $bg
+client.urgent           $fg $fg  $bg $fg $fg

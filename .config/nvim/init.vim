@@ -104,6 +104,12 @@ nnoremap <space> za
 " unhighlight search
 nnoremap <leader><space> :noh<CR>
 
+
+""""" file types
+au BufNewFile,BufRead /*.rasi setf css
+
+
+
 "" PLUGINS
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

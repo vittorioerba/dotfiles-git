@@ -19,7 +19,7 @@ setxkbmap it
 # fi
 
 # LOAD MY XRDB STUFF
-xrdb -load ~/.config/X11/Xresources
+# xrdb -load ~/.config/X11/Xresources
 xmodmap $HOME/.config/X11/Xmodmap
 
 # SET SECONDARY SCREEN
@@ -34,7 +34,7 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 export SSH_AUTH_SOCK
 
 
-feh --no-fehbg --bg-fill '/home/vittorio/Immagini/Tsunami_by_hokusai_19th_century.jpg' # wallpaper
+feh --no-fehbg --bg-fill '/home/vittorio/Immagini/solid.png' # wallpaper
 sxhkd -c "$HOME/.config/sxhkd/i3_sxhkdrc"  &                                           # key manager
 picom -b  --inactive-dim 0.1 &                                                         # compositor
 nm-applet &                                                                            # connection

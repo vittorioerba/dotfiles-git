@@ -1,7 +1,8 @@
 # nord
 colors:
   primary:
-    background: '#161821'
+    # background: '#2E3440' # ORIGINAL
+    background: '#161821'   # CUSTOM
     foreground: '#d8dee9'
     dim_foreground: '#a5abb6'
   cursor:

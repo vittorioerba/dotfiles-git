@@ -3,11 +3,21 @@
 menu="$1"
 
 if [ "$menu" = "drun" ]; then
-    rofi -show drun -theme theme-clean
+    rofi -show run -theme theme-minimal -display-run ">> "
 elif [ "$menu" = "window" ]; then
-    rofi -show window -theme theme-clean
+    rofi -show window -theme theme-minimal -display-window ">> "  -window-format "{c}{w} {t}"
 elif [ "$menu" = "powermenu" ]; then
-    rofi -modi 'Powermenu:~/.config/rofi/rofi-powermenu.sh' -show Powermenu -theme theme-powermenu
+    rofi -modi 'Power:~/.config/rofi/rofi-powermenu.sh' -show Power -theme theme-minimal
 elif [ "$menu" = "i3-menu" ]; then
-    rofi -modi 'Powermenu:~/.config/rofi/rofi-i3-menu.sh' -show Powermenu -theme theme-powermenu
+    rofi -modi 'i3:~/.config/rofi/rofi-i3-menu.sh' -show i3 -theme theme-minimal
 fi
+
+# if [ "$menu" = "drun" ]; then
+#     rofi -show drun -theme theme-clean
+# elif [ "$menu" = "window" ]; then
+#     rofi -show window -theme theme-clean
+# elif [ "$menu" = "powermenu" ]; then
+#     rofi -modi 'Powermenu:~/.config/rofi/rofi-powermenu.sh' -show Powermenu -theme theme-powermenu
+# elif [ "$menu" = "i3-menu" ]; then
+#     rofi -modi 'Powermenu:~/.config/rofi/rofi-i3-menu.sh' -show Powermenu -theme theme-powermenu
+# fi

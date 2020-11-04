@@ -1,0 +1,41 @@
+configuration {
+    modi: "window,run,drun";
+    theme: "minimal";
+    show-icons: false;
+}
+
+*{
+    background-color: #161821;
+    text-color: #d0d0d0;
+    font: "DejaVuSansMono Nerd Font 12";
+}
+
+window {
+    anchor: south;
+    location: south;  
+    width:      30%;
+    padding:    4px;
+    children:   [ horibox ];
+}
+
+horibox {
+    orientation: horizontal;
+    children:   [ prompt, entry, listview ];
+}
+
+listview {
+    layout:     horizontal;
+    spacing:    50px;
+    lines:      100;
+}
+
+entry {
+    expand:     false;
+    width:      10em;
+}
+
+element.selected {
+    background-color: #d0d0d0;
+    text-color: #161821;
+}
+

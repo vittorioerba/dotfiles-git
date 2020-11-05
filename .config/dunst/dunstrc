@@ -16,8 +16,8 @@
     padding = 10
     horizontal_padding = 10
 
-    frame_width = 8
-    frame_color = "#f8f4ec"
+    frame_width = 1
+    frame_color = "#d0d0d0"
     separator_color = frame
     sort = yes
     idle_threshold = 0
@@ -28,7 +28,7 @@
     line_height = 2
 
     markup = full
-    format = "<b>%s</b>\n%b"
+    format = "%s\n%b"
     alignment = center
     show_age_threshold = -1
 
@@ -81,13 +81,13 @@
     close_all = ctrl+shift+space
 
 [urgency_low]
-    background = "#f8f4ec"
-    foreground = "#391f07"
+    background = "#161821"
+    foreground = "#d0d0d0"
 
 [urgency_normal]
-    background = "#f8f4ec"
-    foreground = "#391f07"
+    background = "#161821"
+    foreground = "#d0d0d0"
 
 [urgency_critical]
-    background = "#f8f4ec"
-    foreground = "#391f07"
+    background = "#161821"
+    foreground = "#d0d0d0"

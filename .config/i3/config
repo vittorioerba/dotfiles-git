@@ -47,6 +47,7 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+Shift+f floating toggle
 floating_modifier $mod
+bindsym $mod+c resize set 1200 800; move absolute position center
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize" 
@@ -118,44 +119,10 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-############################## MENUS
-# bindsym $mod+i exec --no-startup-id myrofi i3-menu
-# bindsym $mod+0 exec --no-startup-id myrofi powermenu
-# bindsym $mod+apostrophe exec --no-startup-id lock
 
-
-################################################################################
-# APPLICATIONS
-
-# terminal
-# bindsym $mod+Return exec --no-startup-id WINIT_HIDPI_FACTOR=1 alacritty
-
-# # start program launcher
-# # bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+space exec --no-startup-id myrofi drun
-# bindsym $mod+Shift+space exec --no-startup-id myrofi window
+################ APP RULES
 
 # for_window [class="Skype"] floating enable border normal
-
-################################################################################
-# # SYSTEM CONTROL
-
-# # Screen brightness controls
-# bindsym XF86MonBrightnessUp    exec --no-startup-id "lux -a 10%; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown  exec --no-startup-id "lux -s 10%; notify-send 'brightness down'"
-
-# # volume controls
-# bindsym XF86AudioRaiseVolume   exec --no-startup-id "amixer -q sset Master 5%+; bash $HOME/.config/scripts/notify_vol_up"
-# bindsym XF86AudioLowerVolume   exec --no-startup-id "amixer -q sset Master 5%-; bash $HOME/.config/scripts/notify_vol_down"
-# bindsym XF86AudioMute          exec --no-startup-id "amixer -q sset Master toggle; bash $HOME/.config/scripts/notify_vol_status"
-
-
-
-################################################################################
-# AUTOSTART
-
-# exec --no-startup-id compton -b
-# exec --no-startup-id xautolock -time 10 -locker 'systemctl suspend'
 
 ################################################################################
 # APPEARANCE
@@ -182,18 +149,12 @@ smart_borders on
 gaps inner 14
 gaps outer -2
 
-
 title_align center
 
-#######
-#THEME#
-# https://github.com/a-schaefers/i3-wm-gruvbox-theme/blob/master/i3/config
-#######
-
 # set primary gruvbox colorscheme colors
-set $bg #161821
-set $bgl #2a2e40
-set $fg #9d9d9d
+set $bg #2e3440
+set $bgl #434c5e
+set $fg #eceff4
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $bgl $fg  $bg $fg $bgl

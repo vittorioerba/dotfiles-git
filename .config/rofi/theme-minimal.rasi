@@ -5,8 +5,9 @@ configuration {
 }
 
 *{
-    background-color: #161821;
-    text-color: #d0d0d0;
+    background-color: #2e3440;
+    border-color: #2e3440;
+    text-color: #ebcb8b;
     font: "DejaVuSansMono Nerd Font 12";
 }
 
@@ -35,7 +36,7 @@ entry {
 }
 
 element.selected {
-    background-color: #d0d0d0;
-    text-color: #161821;
+    background-color: #ebcb8b;
+    text-color: #2e3440;
 }
 
